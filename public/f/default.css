@@ -29,8 +29,8 @@ div.yellow {background: url(/i/yellow.png) no-repeat;}
 div.red {background: url(/i/red.png) no-repeat;}
 
 div.date {margin-top: 5px;}
-div.date span.empty {background-color: #D4D4D4; font-size: 13px; padding: 0 5px 0 5px;}
-div.date span.yellow {background-color: #F0C80D; color: #FFF; font-size: 13px; padding: 0 5px 0 5px;}
+div.date span.empty {background-color: #D4D4D4; font-size: 13px; padding: 0 5px 0 5px; border-radius: 2px;}
+div.date span.yellow {background-color: #F0C80D; color: #FFF; font-size: 13px; padding: 0 5px 0 5px; border-radius: 2px;}
 
 p.archive {font-size: 32px; color: #35F;}
 
