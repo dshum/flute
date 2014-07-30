@@ -54,7 +54,6 @@ $site->
 		Item::create('Category')->
 		setTitle('Категория')->
 		setMainProperty('name')->
-		setRoot(true)->
 		setElementPermissions(true)->
 		addOrderBy('order', 'asc')->
 		addProperty(
@@ -94,7 +93,6 @@ $site->
 		Item::create('Mark')->
 		setTitle('Оценка')->
 		setMainProperty('name')->
-		setRoot(true)->
 		setElementPermissions(true)->
 		addOrderBy('order', 'asc')->
 		addProperty(
@@ -134,7 +132,6 @@ $site->
 		Item::create('Composition')->
 		setTitle('Произведение')->
 		setMainProperty('name')->
-		setRoot(true)->
 		setElementPermissions(true)->
 		addOrderBy('created_at', 'desc')->
 		addProperty(
@@ -174,7 +171,6 @@ $site->
 		Item::create('Card')->
 		setTitle('Карточка')->
 		setMainProperty('name')->
-		setRoot(true)->
 		setElementPermissions(true)->
 		addOrderBy('created_at', 'desc')->
 		addProperty(

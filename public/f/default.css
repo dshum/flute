@@ -21,7 +21,7 @@ div.blue div {width: 100px; height: 100px; margin: 10px; float: left; background
 div.category-row {margin: 10px;}
 div.category-row div.category {width: 150px; height: 200px; float: left; font-size: 19px; text-align: left; padding-right: 20px; line-height: 120px;}
 div.category-row div.category span {padding: 2px 10px 2px 10px; background-color: #675; color: #FFF;}
-div.category-row div.card {width: 110px; margin-left: 10px; float: left; padding: 5px; font-size: 15px; text-align: center; background-color: #F7F9F7; border-top: 2px solid #EEE; border-left: 2px solid #EEE; border-right: 4px solid #DDD; border-bottom: 4px solid #DDD;}
+div.category-row div.card {width: 110px; margin-left: 10px; float: left; padding: 5px; font-size: 15px; text-align: center; background-color: #F7F9F7; border-top: 2px solid #EEE; border-left: 2px solid #EEE; border-right: 4px solid #DDD; border-bottom: 4px solid #DDD; border-radius: 10px;}
 div.mark {margin: 5px; width: 100px; height: 100px; color: #FFF; font-size: 17px; text-align: center; line-height: 100px;}
 div.card a {text-decoration: none;}
 div.empty {background: url(/i/empty.png) no-repeat; color: #000;}
