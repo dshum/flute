@@ -24,6 +24,9 @@ $site->
 			setShow(true)
 		)->
 		addProperty(
+			OrderProperty::create('order')
+		)->
+		addProperty(
 			OneToOneProperty::create('service_section_id')->
 			setTitle('Служебный раздел')->
 			setRelatedClass('ServiceSection')->
@@ -54,13 +57,15 @@ $site->
 		Item::create('Category')->
 		setTitle('Категория')->
 		setMainProperty('name')->
-		setElementPermissions(true)->
 		addOrderBy('order', 'asc')->
 		addProperty(
 			TextfieldProperty::create('name')->
 			setTitle('Название')->
 			setRequired(true)->
 			setShow(true)
+		)->
+		addProperty(
+			OrderProperty::create('order')
 		)->
 		addProperty(
 			OneToOneProperty::create('service_section_id')->
@@ -93,13 +98,15 @@ $site->
 		Item::create('Mark')->
 		setTitle('Оценка')->
 		setMainProperty('name')->
-		setElementPermissions(true)->
 		addOrderBy('order', 'asc')->
 		addProperty(
 			TextfieldProperty::create('name')->
 			setTitle('Название')->
 			setRequired(true)->
 			setShow(true)
+		)->
+		addProperty(
+			OrderProperty::create('order')
 		)->
 		addProperty(
 			OneToOneProperty::create('service_section_id')->
@@ -132,7 +139,6 @@ $site->
 		Item::create('Composition')->
 		setTitle('Произведение')->
 		setMainProperty('name')->
-		setElementPermissions(true)->
 		addOrderBy('created_at', 'desc')->
 		addProperty(
 			TextfieldProperty::create('name')->
@@ -171,7 +177,6 @@ $site->
 		Item::create('Card')->
 		setTitle('Карточка')->
 		setMainProperty('name')->
-		setElementPermissions(true)->
 		addOrderBy('created_at', 'desc')->
 		addProperty(
 			TextfieldProperty::create('name')->
