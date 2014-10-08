@@ -453,12 +453,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dshum/LemonTree.git",
-                "reference": "994d17527c08e5223ba761c9b5a56cd94a94fc63"
+                "reference": "e68c314cab704172c31bf85458c101d9cf8a3a14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dshum/LemonTree/zipball/994d17527c08e5223ba761c9b5a56cd94a94fc63",
-                "reference": "994d17527c08e5223ba761c9b5a56cd94a94fc63",
+                "url": "https://api.github.com/repos/dshum/LemonTree/zipball/e68c314cab704172c31bf85458c101d9cf8a3a14",
+                "reference": "e68c314cab704172c31bf85458c101d9cf8a3a14",
                 "shasum": ""
             },
             "require": {
@@ -486,7 +486,7 @@
                     "email": "denis-shumeev@yandex.ru"
                 }
             ],
-            "time": "2014-07-27 13:26:27"
+            "time": "2014-07-30 17:08:08"
         },
         {
             "name": "monolog/monolog",
