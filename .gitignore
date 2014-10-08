@@ -9,4 +9,4 @@ Thumbs.db
 /app/config/*
 /public/LT/
 /public/assets/
-/storage/
+/storage/*
