@@ -1,6 +1,8 @@
 <?php
 
-class Composition extends LemonTree\Element {
+class Composition extends Eloquent implements LemonTree\ElementInterface {
+
+	use LemonTree\ElementTrait;
 
 	public function newQuery($excludeDeleted = true)
 	{

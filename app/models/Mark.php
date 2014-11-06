@@ -1,6 +1,8 @@
 <?php
 
-class Mark extends LemonTree\Element {
+class Mark extends Eloquent implements LemonTree\ElementInterface {
+
+	use LemonTree\ElementTrait;
 
 	const YELLOW_MARK_ID = 1;
 	const RED_MARK_ID = 2;

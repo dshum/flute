@@ -1,6 +1,8 @@
 <?php
 
-class Card extends LemonTree\Element {
+class Card extends Eloquent implements LemonTree\ElementInterface {
+
+	use LemonTree\ElementTrait;
 
 	public function getDates()
 	{
