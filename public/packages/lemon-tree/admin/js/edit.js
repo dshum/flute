@@ -126,7 +126,7 @@ $(function() {
 
 		if (opened == 'open') {
 			$.post(
-				"{{ URL::route('admin.tree.open1') }}",
+				LT.Edit.openTreeUrl,
 				{itemName: itemName, propertyName: propertyName, classId: node},
 				function(data) {
 					$('div.padding[node1="'+node+'"]').html(data).slideDown('fast', function() {
@@ -149,7 +149,79 @@ $(function() {
 		}
 	});
 
+	$('#button-up').click(function() {
+		document.location.href = LT.Edit.upUrl;
+	});
+
+	$('#button-save').click(function() {
+		if ($(this).hasClass('disabled')) return false;
+
+		$("#editForm").submit();
+	});
+
+	$('#button-copy').click(function() {
+		if ($(this).hasClass('disabled')) return false;
+
+		$('#copyingForm').submit();
+	});
+
+	$('#button-move').click(function() {
+		if ($(this).hasClass('disabled')) return false;
+
+		$('#movingForm').submit();
+	});
+
+	$('#button-delete').click(function() {
+		if ($(this).hasClass('disabled')) return false;
+		if ( ! LT.Edit.deleteUrl) return false;
+
+		$.blockUI();
+
+		$('#message').html('').hide();
+
+		$.post(
+			LT.Edit.deleteUrl,
+			{},
+			function(data) {
+				if (data.logout) {
+					document.location.href = LT.adminUrl;
+				} else if (data.error) {
+					LT.Alert.popup(data.error);
+				} else {
+					document.location.href = LT.Edit.redirectUrl;
+				}
+			},
+			'json'
+		).fail(function() {
+			LT.Alert.popup(LT.Error.defaultMessage);
+		});
+	});
+
+	$('#button-restore').click(function() {
+		if ($(this).hasClass('disabled')) return false;
+		if ( ! LT.Edit.restoreUrl) return false;
+
+		$.blockUI();
+
+		$.post(
+			LT.Edit.restoreUrl,
+			{},
+			function(data) {
+				if (data.logout) {
+					document.location.href = LT.adminUrl;
+				} else {
+					document.location.reload();
+				}
+			},
+			'json'
+		).fail(function() {
+			LT.Alert.popup(LT.Error.defaultMessage);
+		});
+	});
+
 	$('#editForm').submit(function(event) {
+		if ($(this).attr('disabled')) return false;
+
 		$.blockUI();
 
 		$('textarea[tinymce="true"]').each(function() {
@@ -162,28 +234,51 @@ $(function() {
 			url: this.action,
 			dataType: 'json',
 			success: function(data) {
-//				alert(data);
-				$('#message').html('').hide();
-				$('span[error]').removeClass('error');
+				$('span[error]').parent().slideUp('fast');
 
-				if (data.error) {
-					for (var i in data.error) {
-						$('span[error="'+data.error[i]+'"]').addClass('error');
-					}
+				if (data.debug) {
+					LT.Alert.popup(data.debug);
 				} else if (data.logout) {
 					document.location.href = LT.adminUrl;
-				} else if (data.redirect) {
-					document.location.href = data.redirect;
+				} else if (data.error) {
+					var message = '';
+
+					for (var name in data.error) {
+						var errorContainer = $('span[error="'+name+'"]');
+						var propertyMessage = '';
+
+						for (var i in data.error[name]) {
+							propertyMessage +=
+								data.error[name][i].message
+								+'<br />';
+							message +=
+								data.error[name][i].title
+								+'. '
+								+data.error[name][i].message
+								+'.<br />';
+						}
+
+						errorContainer.html(propertyMessage);
+						errorContainer.parent().slideDown('fast');
+					}
+
+					LT.Alert.popup(message);
 				} else if (data.refresh) {
 					for (var name in data.refresh) {
 						var view = LT.urldecode(data.refresh[name]);
 						$('#'+name+'_container').html(view);
 					}
+				} else if (data.redirect) {
+					document.location.href = data.redirect;
 				}
 
 				$.unblockUI();
+			},
+			error: function() {
+				LT.Alert.popup(LT.Error.defaultMessage);
 			}
 		});
+
 		event.preventDefault();
 	});
 
